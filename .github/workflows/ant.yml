@@ -34,9 +34,9 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source-directory: output
-        destination-github-username: gwolbers
-        destination-repository-name: test_workflow_dev
+        source-directory: 'output'
+        destination-github-username: 'gwolbers'
+        destination-repository-name: 'test_workflow_dev'
         target-branch: master
     - name: Test get variable exported by push-to-another-repository
       run: echo $DESTINATION_CLONED_DIRECTORY
