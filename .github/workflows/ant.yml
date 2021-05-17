@@ -32,11 +32,11 @@ jobs:
       id: push_directory
       uses: cpina/github-action-push-to-another-repository@main
       env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        github_token: ${{ secrets.USER_TOKEN }}
       with:
-        source-directory: 'output'
-        destination-github-username: 'gwolbers'
-        destination-repository-name: 'test_workflow_dev'
+        source-directory: output
+        destination-github-username: gwolbers
+        destination-repository-name: test_workflow_dev
         target-branch: master
     - name: Test get variable exported by push-to-another-repository
       run: echo $DESTINATION_CLONED_DIRECTORY
