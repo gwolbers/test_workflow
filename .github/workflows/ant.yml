@@ -30,15 +30,13 @@ jobs:
         git commit -m "Update output"
     - name: Push changes
       id: push_directory
-      uses: cpina/github-action-push-to-another-repository@master
+      uses: cpina/github-action-push-to-another-repository@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        source-directory: 'output'
-        destination-github-username: 'gwolbers'
-        destination-repository-name: 'test_workflow_dev'
-        user-email: 'g.wolbers@geonovum.nl'
-        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-        target-branch: 'master'
+        source-directory: output
+        destination-github-username: gwolbers
+        destination-repository-name: test_workflow_dev
+        target-branch: master
     - name: Test get variable exported by push-to-another-repository
       run: echo $DESTINATION_CLONED_DIRECTORY
